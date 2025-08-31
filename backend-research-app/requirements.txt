@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+langchain
+pinecone-client
+pydantic<3
+pytesseract
+PyPDF2
+pinecone
+pinecone-client
+pymongo
+bs4
+pdf2image
+langchain-openai
+python-multipart
+lxml
