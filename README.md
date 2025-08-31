@@ -69,23 +69,6 @@ docker compose up --build
 * Frontend will be accessible at: `http://localhost:8080`
 
 ---
-
-## Example API Call
-
-**Upload a PDF:**
-
-```bash
-curl -X POST "http://localhost:8000/ingest/pdf" \
-  -F "file=@my_research_paper.pdf"
-```
-
-**Ask a question:**
-
-```bash
-curl -X POST "http://localhost:8000/chat" \
-  -F "message=Explain the key findings of my uploaded PDF."
-```
-
 ---
 
 ## Local LLM (LMStudio) Integration
