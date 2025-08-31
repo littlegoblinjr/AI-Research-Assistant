@@ -128,15 +128,8 @@ docker compose down
 
 * Add support for **read-only Pinecone keys** for safer sharing
 * Add **automatic cleanup** of uploaded files after ingestion
-* Expand OCR support for **multi-language PDFs**
+
 
 ```
 
----
 
-This is **100% ready** to paste into `README.md` — the headers, code blocks, and bullet points are all properly formatted.  
-
-If you want, I can also **add a workflow diagram section** at the top, so it visually explains **Frontend ↔ Backend ↔ Pinecone ↔ LMStudio** for users.  
-
-Do you want me to add that diagram?
-```
