@@ -1,8 +1,4 @@
-Ah! Got it — you want a **Markdown-ready README** with proper headers (`#`, `##`, `###`) and formatting so you can literally paste it into `README.md` without changes. Here it is:
 
----
-
-```markdown
 # AI Research Assistant
 
 **Description:**  
