@@ -13,3 +13,4 @@ pdf2image
 langchain-openai
 python-multipart
 lxml
+python-dotenv

@@ -17,6 +17,7 @@ from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pytesseract
+from dotenv import load_dotenv
 
 # Optional heavy deps – we guard usage so app still starts if some are missing
 import PyPDF2
@@ -30,6 +31,9 @@ from pinecone import Pinecone
 import logging
 logging.basicConfig(level=logging.INFO)
 
+load_dotenv()  # defaults to searching for .env in the current working directory
+
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
 # ============ CONFIG / ENV ============
 OPENAI_BASE = os.getenv("OPENAI_BASE", "http://127.0.0.1:1234/v1")  # LM Studio default
@@ -37,13 +41,13 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "lmstudio")
 OPENAI_MODEL_KEYWORD = os.getenv("OPENAI_MODEL_KEYWORD", "gemma-3-4b-it")
 OPENAI_MODEL_ANSWER = os.getenv("OPENAI_MODEL_ANSWER", "gemma-3-4b-it")
 
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+#PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_INDEX = os.getenv("PINECONE_INDEX", "research-paper-storage")
 PINECONE_CHAT_INDEX = os.getenv("PINECOONE_CHAT_INDEX", "chat-history")
 PINECONE_NAMESPACE = os.getenv("PINECONE_NAMESPACE", "__default__")
 
 ARXIV_MAX_RESULTS = int(os.getenv("ARXIV_MAX_RESULTS", "5"))
-SCORE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "0.34"))
+SCORE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "0.4"))
 
 
 # ============ FASTAPI APP ============

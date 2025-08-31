@@ -1,28 +1,30 @@
 version: "3.9"
 
 services:
+  # =========================
+  # Backend API (FastAPI)
+  # =========================
   api:
     build:
-      context: ./backend-research-app      # uses backend-research-app/Dockerfile
+      context: ./backend-research-app      # Backend Dockerfile location
     image: backend-research:latest
-    container_name: api
+    container_name: ai-backend
     ports:
       - "8000:8000"
     env_file:
-      - ./backend-research-app/.env        # has OPENAI_BASE=http://host.docker.internal:1234/v1
+      - ./backend-research-app/.env        # Contains PINECONE_API_KEY, OPENAI_BASE, model names
     restart: unless-stopped
 
+  # =========================
+  # Frontend (React)
+  # =========================
   web:
     build:
-      context: ./frontend                  # uses frontend/Dockerfile
+      context: ./frontend                  # Frontend Dockerfile location
       args:
-        # Use ONE of these depending on your tooling:
-        # For CRA:
-        REACT_APP_API_URL: "http://localhost:8000"
-        # For Vite (remove the CRA arg and keep this one):
-        # VITE_API_URL: "http://localhost:8000"
+        REACT_APP_API_URL: "http://localhost:8000"   # API endpoint for React
     image: frontend-app:latest
-    container_name: web
+    container_name: ai-frontend
     ports:
       - "8080:80"
     depends_on:
